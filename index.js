@@ -10,6 +10,7 @@ const pool = new Pool({
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
+.use(express.logger('dev'));                         // log every request to the console
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
