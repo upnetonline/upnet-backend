@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const morgan = require('morgan')
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -10,7 +11,7 @@ const pool = new Pool({
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-.use(express.logger('dev'));                         // log every request to the console
+.use(morgan('dev'));                         // log every request to the console
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
