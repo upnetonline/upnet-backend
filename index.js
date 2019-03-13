@@ -11,7 +11,7 @@ const pool = new Pool({
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-.use(morgan('dev'));                         // log every request to the console
+.use(morgan('dev'))                        
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
